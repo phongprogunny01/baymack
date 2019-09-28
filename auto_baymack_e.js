@@ -109,7 +109,7 @@ function get_csdl_func(idvideo){
 function click_answer(n){
 	$("ul[class='link-btn-list video-category-options'] li a")[n].click();
 	index = n;
-	for(var =0;i<field.length;i++){
+	for(var i=0;i<field.length;i++){
 		if(choose[n]==field[i]){
 			answer = i+1;
 		}
