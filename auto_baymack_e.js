@@ -96,6 +96,7 @@ function get_csdl_func(idvideo){
 			get_csdl = data;
 	  }
 	  else {
+		  console.log(data);
 		  alert("error get data php");
 		  get_csdl=[];
 	  }
@@ -319,6 +320,8 @@ function set_csdl_func(idvideo,answer,right){
 	$.get( server[rand]+"set_baymack.php?id="+idvideo+"&choose="+answer+"&right="+right, function(data) {
 		if(data=="update data success"||data=="add data success"){
 			next_video();
+		} else {
+		  alert("error set data php");
 		}
 	}).fail(function(){
 		setTimeout(function(){
