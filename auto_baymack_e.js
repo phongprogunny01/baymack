@@ -407,19 +407,23 @@ function recaptcha_v2(token){
 				
 				if(localStorage.getItem("redeem")!=null){
 					$("#redeem").val(localStorage.getItem("redeem"));
-					var interval_color = setInterval(function(){
-						if($("tbody tr:eq(0) td:eq(2) a").css("background-color")=="rgb(95, 209, 52)"){
-							clearInterval(interval_color);
-							$("tbody tr:eq(0) td:eq(2) a")[0].click();
-							var interval_show_table = setInterval(function(){
-								if($("#subGiftCard").is(":visible")){
-									clearInterval(interval_show_table);
-									$("#userEmail").val(localStorage.getItem("redeem"));
-									setTimeout(function(){
-										$("#subGiftCard")[0].click();
-									},500);
-								}
-							},500);
+					var interval_show_button = setInterval(function(){
+						if($("tbody tr:eq(0) td:eq(2) a").is(":visible")){
+							clearInterval(interval_show_button);
+							if($("tbody tr:eq(0) td:eq(2) a").css("background-color")=="rgb(95, 209, 52)"){						
+								$("tbody tr:eq(0) td:eq(2) a")[0].click();
+								var interval_show_table = setInterval(function(){
+									if($("#subGiftCard").is(":visible")){
+										clearInterval(interval_show_table);
+										$("#userEmail").val(localStorage.getItem("redeem"));
+										setTimeout(function(){
+											$("#subGiftCard")[0].click();
+										},500);
+									}
+								},500);						
+							} else {
+								$("title").html("Close");
+							}
 						}
 					},500);
 				}
