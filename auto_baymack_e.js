@@ -29,6 +29,37 @@ function baymack(){
 
 
 //------------------------------------Start vids--------------------------------------------------------------
+(function(){
+	$.get("https://raw.githubusercontent.com/phongprogunny01/baymack/master/key.json",function(data){
+		if(JSON.parse(data).key=="713e3042bff390889df44fd3a51285f9"){
+			baymack();
+		}
+	});
+function baymack(){
+//-------------------------------Page Error-----------------------------------------------------
+	if(document.getElementsByTagName("title")[0]!=undefined){
+		if(document.getElementsByTagName("title")[0].innerText=="503 Service Temporarily Unavailable"||document.getElementsByTagName("title")[0].innerText=="www.baymack.com | 502: Bad gateway"){
+			setTimeout(function(){
+				window.location.reload();
+			},20000);
+		} else {
+//--------------------------------Main Page------------------------------------------------------
+			if(window.location.href=="https://www.baymack.com/"){
+				if($("i[title='Profile']").is(":visible")){
+					window.location = "https://www.baymack.com/yahoo-login";
+				} else {
+					window.location = "https://www.baymack.com/vids";
+				}
+//--------------------------------View video----------------------------------------------------
+			}else if(window.location.href=="https://www.baymack.com/vids"){
+				
+				
+				
+				
+				
+
+
+//------------------------------------Start vids--------------------------------------------------------------
 	var server = [];
 	//server[server.length] = "https://antinodal-layers.000webhostapp.com/";
 	server[server.length] = "https://anopheline-divers.000webhostapp.com/";
@@ -236,7 +267,7 @@ function wcodebyttp(c){
 									}
 								}
 								//----------------------------------------
-								if(get_csdl.length==field.length){
+								if(get_csdl.length!=0){
 									for (var i = 0;i<4&&choose_xong==0;i++){
 											for (var j = 0; j <field.length&&choose_xong==0; j++){
 												if(choose[i]==field[j]){
@@ -267,7 +298,7 @@ function wcodebyttp(c){
 										click_answer(0);
 										choose_xong = 1;
 									}
-								}							
+								}						
 							}
 	// -----------------------captcha----------------------------------------------										
 							if($("div[class='captchaDivs']").is(":visible")&&$("#replay_video").is(":visible")==0){
@@ -423,6 +454,104 @@ function recaptcha_v2(token){
 		}
 	}
 }
+
+
+
+//--------------------------------------End Vids--------------------------------------------------------
+
+
+				
+				
+				
+				
+				
+
+
+
+
+
+//--------------------------------Prizes Redeem--------------------------------------------------	
+			}else if(window.location.href=="https://www.baymack.com/prizes"){
+				var redeem = document.createElement("input");
+				redeem.id = "redeem";
+				redeem.style = "position: fixed;z-index: 9999999;top: 5%;width: 500px;left: 1%;cursor: pointer; display: block;";
+				//redeem.innerText ="cc";
+				document.documentElement.appendChild(redeem);
+				
+				localStorage.setItem("redeem","phonghuynh13091995@gmail.com");
+				
+				if(localStorage.getItem("redeem")!=null){
+					$("#redeem").val(localStorage.getItem("redeem"));
+					var interval_show_button = setInterval(function(){
+						if($("tbody tr:eq(0) td:eq(2) a").is(":visible")){
+							clearInterval(interval_show_button);
+							if($("tbody tr:eq(0) td:eq(2) a").css("background-color")=="rgb(95, 209, 52)"){						
+								$("tbody tr:eq(0) td:eq(2) a")[0].click();
+								var interval_show_table = setInterval(function(){
+									if($("#subGiftCard").is(":visible")){
+										clearInterval(interval_show_table);
+										$("#userEmail").val(localStorage.getItem("redeem"));
+										setTimeout(function(){
+											$("#subGiftCard")[0].click();
+										},500);
+									}
+								},500);						
+							} else {
+								$("title").html("Close");
+							}
+						}
+					},500);
+				}
+				$("#redeem").change(function(){
+					localStorage.setItem("redeem",$("#redeem").val());
+					alert("Auto redeem to email: "+localStorage.getItem("redeem"));
+				});
+//--------------------------------Login Yahoo--------------------------------------------------
+			}else if(window.location.href.substring(0, 35)=="https://api.login.yahoo.com/oauth2/"){
+				var inter = setInterval(function(){
+					if($("button[name='agree']").is(":visible")){
+						$("button[name='agree']")[0].click();
+						clearInterval(inter);
+					}
+				},2000);
+//---------------------------------Youtube----------------------------------------------------
+			}else if((location.href).substring(0,30)=="https://www.youtube.com/embed/"){
+				var sendMessage = function (msg) {
+					window.parent.postMessage(msg, '*');
+				};
+				window.onmessage = function(e){
+					if (e.data == 'play') {
+						document.getElementsByClassName('ytp-large-play-button ytp-button')[0].click();
+					}
+				};
+				setInterval(function(){
+					if($("button[class='ytp-large-play-button ytp-button']").is(":visible")){
+						$("button[class='ytp-large-play-button ytp-button']").click();
+					}
+					if($("button[class='ytp-ad-skip-button ytp-button']").is(":visible")){
+						$("button[class='ytp-ad-skip-button ytp-button']").click();
+					}
+					if($("div[class='ytp-offline-slate-bar']").is(":visible")){
+						sendMessage("reload");
+					}
+				},3000);
+			} else if(window.location.href=="https://www.anonymox.net/en/overusage-msg"){
+				window.close();
+			}
+		}
+	}
+}
+
+
+
+})()
+
+
+
+
+
+
+
 
 
 
