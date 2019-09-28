@@ -92,14 +92,15 @@ function baymack(){
 function get_csdl_func(idvideo){
 	var rand = parseInt(Math.random()*(server.length));
 	$.get( server[rand]+"get_baymack.php?id="+idvideo, function( data ) {
-	  if(data!="no data"&&data!="connect sql error"&&data!="error id"){
+		if(data!="no data"&&data!="connect sql error"&&data!="error id"){
 			get_csdl = data;
-	  }
-	  else {
-		  console.log(data);
-		  alert("error get data php");
-		  get_csdl=[];
-	  }
+		}
+		else if(data=="no data"||data=="connect sql error"){
+			get_csdl=[];
+		} else {
+			console.log(data);
+			alert("error get data php");
+		}
 		
 	}).fail(function() {
 		setTimeout(function(){
