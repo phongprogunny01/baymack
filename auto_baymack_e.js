@@ -91,7 +91,7 @@ function baymack(){
 	wcodebyttp(1);
 function get_csdl_func(idvideo){
 	var rand = parseInt(Math.random()*(server.length));
-	$.get( server[rand]"get_baymack.php?id="+idvideo, function( data ) {
+	$.get( server[rand]+"get_baymack.php?id="+idvideo, function( data ) {
 	  if(data!="no data"&&data!="connect sql error"&&data!="error id"){
 			get_csdl = data;
 	  }
