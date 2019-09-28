@@ -29,12 +29,6 @@ function baymack(){
 
 
 //------------------------------------Start vids--------------------------------------------------------------
-	var server = [];
-	server[server.length] = "https://antinodal-layers.000webhostapp.com/";
-	server[server.length] = "https://anopheline-divers.000webhostapp.com/";
-	server[server.length] = "https://idolatrous-checkers.000webhostapp.com/";
-	server[server.length] = "https://earnest-circuitry.000webhostapp.com/";
-	
 	var seclect_server_captcha = 1;
 	var tab_run = 0;
 	var count_tab_dont_run = 0;
@@ -57,50 +51,44 @@ function baymack(){
 	var choose_xong = 0;
 	var mode_auto =  0 ;
 	var count_captcha_show = 0;
-	var answer = 0;
 	//var count_in_php = 0;
 	key ='';
 	var server_captcha = ["https://azcaptcha.com/","http://api.captcha.guru/"];	
 	var api = ["bxxmmwtqcjkh4rcbdffjk2dv3p96lyvq","ca1bc8d60c12caf18a9e7a2b45dabbf2"];
 	
 
-	field[field.length] = 'Auto';							//1
-	field[field.length] = 'Beauty';						
-	field[field.length] = 'Comedy';
-	field[field.length] = 'Education'
-	field[field.length] = 'Entertainment';
-	field[field.length] = 'Film';
-	field[field.length] = 'Family Entertainment';
-	field[field.length] = 'Food';
-	field[field.length] = 'Gaming';
-	field[field.length] = 'How-to';
-	field[field.length] = 'Music';
-	field[field.length] = 'News &amp; Politics';
-	field[field.length] = 'None';
-	field[field.length] = 'Nonprofits';
-	field[field.length] = 'People &amp; Blogs';
-	field[field.length] = 'Pets';
-	field[field.length] = 'Sci-Fi';
-	field[field.length] = 'Sports';
-	field[field.length] = 'Technology';
-	field[field.length] = 'Travel';
-	field[field.length] = 'Travel &amp; Events';			//21
-	
-	
+	field[field.length] = '%20Auto%20';							//1
+	field[field.length] = '%20Comedy%20';						//2
+	field[field.length] = '%20Entertainment%20';				//3
+	field[field.length] = '%20Film%20';							//4
+	field[field.length] = '%20Food%20';
+	field[field.length] = '%20Gaming%20';
+	field[field.length] = '%20News%20&amp;%20Politics%20';
+	field[field.length] = '%20None%20';
+	field[field.length] = '%20Nonprofits%20';
+	field[field.length] = '%20Technology%20';
+	field[field.length] = '%20Education%20';
+	field[field.length] = '%20Music%20';
+	field[field.length] = '%20People%20&amp;%20Blogs%20';
+	field[field.length] = '%20Pets%20';
+	field[field.length] = '%20Sci-Fi%20';
+	field[field.length] = '%20Travel%20';
+	field[field.length] = '%20How-to%20';
+	field[field.length] = '%20Travel%20&amp;%20Events%20';
+	field[field.length] = '%20Sports%20';
+	field[field.length] = '%20Family%20Entertainment%20';		//20
 	
 	wcodebyttp(1);
 function get_csdl_func(idvideo){
-	var rand = parseInt(Math.random()*(server.length));
-	$.get( server[rand]+"get_baymack.php?id="+idvideo, function( data ) {
-		if(data!="no data"&&data!="connect sql error"&&data!="error id"){
-			get_csdl = data;
-		}
-		else if(data=="no data"||data=="connect sql error"){
-			get_csdl=[];
-		} else {
-			console.log(data);
-			alert("error get data php");
-		}
+	$.get( "https://antinodal-layers.000webhostapp.com/getcsdl.php?link="+idvideo, function( data,status ) {
+	  if(data!="no data"&&data!="connect sql error"&&data!="error link"){
+		var data = JSON.parse(data);
+		for (var i=0;i<data.length;i++) 
+			get_csdl[i] = data[i];
+	  }
+	  else {
+		  get_csdl=[];
+	  }
 		
 	}).fail(function() {
 		setTimeout(function(){
@@ -111,11 +99,6 @@ function get_csdl_func(idvideo){
 function click_answer(n){
 	$("ul[class='link-btn-list video-category-options'] li a")[n].click();
 	index = n;
-	for(var i=0;i<field.length;i++){
-		if(choose[n]==field[i]){
-			answer = i+1;
-		}
-	}
 }
 function stop_video(){
 	iframe = document.getElementById($("youtube-player iframe").attr("id"));
@@ -183,7 +166,7 @@ function wcodebyttp(c){
 							tat_xong=0;
 							setcsdl_xong = 0;
 							captcha_xong = 0;
-							answer = 0;
+							
 							get_csdl_xong = 0;
 							mode_auto = 0;
 							choose = [];
@@ -191,7 +174,7 @@ function wcodebyttp(c){
 						//}
 					}
 					else {
-						idvideo = $("a[class='twitter']").attr("href").substring(102);
+						idvideo = $("a[class='twitter']").attr("href").substring(70);
 						if(get_csdl_xong==0){
 							get_csdl_func(idvideo);
 							get_csdl_xong = 1;
@@ -213,28 +196,13 @@ function wcodebyttp(c){
 								$("#replay_video")[0].click();
 								tat_xong = 0;
 							}
-//------------------------------------------------------choose---------------------------------------------
-							if($("div[class='captchaDivs']").is(":visible")==0&&$("#nextvideo").is(":visible")==0&&$("ul[class='link-btn-list video-category-options']").is(":visible")==1){
+							if($("div[class='captchaDivs']").is(":visible")==0&&$("#nextvideo").is(":visible")==0&&$("ul[class='link-btn-list video-category-options']").is(":visible")==1){// choose da
 								$("#loading").remove();
 								choose_xong = 0;
 								for (var i = 0;i<4;i++){
-									choose[i] = $("a[class='border-btn']")[i].innerHTML.trim();
+									choose[i] = encodeURI($("a[class='border-btn']:eq("+i+")").html());
 								}
-								//---------------check field---------------------
-								var empty_field = 1;
-								for (var i = 0;i<4;i++){
-									for (var j = 0; j <field.length; j++){
-										if(choose[i]==field[j]){
-											empty_field=0;
-										}
-									}
-									if(empty_field==1){
-										console.log("'"+choose[i]+"'");
-										alert("Add field: "+choose[i]);
-										clearInterval(interval);
-									}
-								}
-								//----------------------------------------
+	//----------------choose---------------------------------------------
 								if(get_csdl.length==field.length){
 									for (var i = 0;i<4&&choose_xong==0;i++){
 											for (var j = 0; j <field.length&&choose_xong==0; j++){
@@ -291,18 +259,21 @@ function wcodebyttp(c){
 							}
 							if($("#nextvideo").is(":visible")){// choose next 
 								
-					//			setTimeout(function(){
-					//				next_video();	
-					//			},3000);	
+								setTimeout(function(){
+									next_video();	
+								},3000);	
 								if($("div[class='watch-vdo-msg'] h2").html()=="Great! You guessed it correctly!"){
 									right = 1;
 									
 								}
 								else right = 0;				
-								if(setcsdl_xong==0){	
+								if(setcsdl_xong==0){
+			
 									if((right&&mode_auto==0)||(!right)){
 										if($("div[class='watch-vdo-msg']").is(":visible")||$("div[class='watch-vdo-msg wrong']").is(":visible")){
-											set_csdl_func(idvideo,answer,right);
+											$.get( "https://antinodal-layers.000webhostapp.com/setcsdl.php?link="+idvideo+"&choose="+encodeURIComponent(choose[index])+"&right="+right, function( data,status ) {
+												//if(data=="add data error") alert("error field");
+											});
 										}
 									}
 									setcsdl_xong = 1;
@@ -315,20 +286,6 @@ function wcodebyttp(c){
 			
 		},1000);
 	}
-}
-function set_csdl_func(idvideo,answer,right){
-	var rand = parseInt(Math.random()*(server.length));
-	$.get( server[rand]+"set_baymack.php?id="+idvideo+"&choose="+answer+"&right="+right, function(data) {
-		if(data=="update data success"||data=="add data success"){
-			next_video();
-		} else {
-		  alert("error set data php");
-		}
-	}).fail(function(){
-		setTimeout(function(){
-			set_csdl_func(idvideo,answer,right);
-		},5000);
-	});
 }
 function check(id,api,server){
 	setTimeout(function(){
@@ -499,7 +456,7 @@ function recaptcha_v2(token){
 						sendMessage("reload");
 					}
 				},3000);
-			} else if(window.location.href="https://www.anonymox.net/en/overusage-msg"){
+			} else if(window.location.href=="https://www.anonymox.net/en/overusage-msg"){
 				window.close();
 			}
 		}
