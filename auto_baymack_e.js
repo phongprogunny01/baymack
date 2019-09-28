@@ -35,6 +35,7 @@ function baymack(){
 	server[server.length] = "https://idolatrous-checkers.000webhostapp.com/";
 	server[server.length] = "https://earnest-circuitry.000webhostapp.com/";
 	
+	var empty_field = 1;
 	var seclect_server_captcha = 1;
 	var tab_run = 0;
 	var count_tab_dont_run = 0;
@@ -221,7 +222,7 @@ function wcodebyttp(c){
 									choose[i] = $("a[class='border-btn']")[i].innerHTML.trim();
 								}
 								//---------------check field---------------------
-								var empty_field = 1;
+								empty_field = 1;
 								for (var i = 0;i<4;i++){
 									for (var j = 0; j <field.length; j++){
 										if(choose[i]==field[j]){
