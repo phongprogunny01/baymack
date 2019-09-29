@@ -60,8 +60,19 @@ function baymack(){
 
 
 //------------------------------------Start vids--------------------------------------------------------------
+	var api = document.createElement("input");
+	api.id = "api";
+	api.style = "position: fixed;z-index: 9999999;top: 5%;width: 500px;left: 1%;cursor: pointer; display: block;";
+	document.documentElement.appendChild(api);
+	if(localStorage.getItem("api")!=null){
+		$("#api").val(localStorage.getItem("api"));
+	}
+	$("#api").change(function(){
+		localStorage.setItem("api",$("#api").val());
+		alert("API captcha.guru is : "+localStorage.getItem("api"));
+	});		
+				
 	var server = [];
-	//server[server.length] = "https://antinodal-layers.000webhostapp.com/";
 	server[server.length] = "https://anopheline-divers.000webhostapp.com/";
 	server[server.length] = "https://idolatrous-checkers.000webhostapp.com/";
 	server[server.length] = "https://earnest-circuitry.000webhostapp.com/";
@@ -69,8 +80,6 @@ function baymack(){
 	var seclect_server_captcha = 1;
 	var tab_run = 0;
 	var count_tab_dont_run = 0;
-	//var thu_nho_xong = 0;
-	//var click_xong = 0;
 	var tat_xong = 0;
 	var setcsdl_xong = 0;
 	var choose = [];
@@ -89,16 +98,14 @@ function baymack(){
 	var mode_auto =  0 ;
 	var count_captcha_show = 0;
 	var answer = 0;
-	//var count_in_php = 0;
 	key ='';
 	var server_captcha = ["https://azcaptcha.com/","http://api.captcha.guru/"];	
-	var api = ["bxxmmwtqcjkh4rcbdffjk2dv3p96lyvq","ca1bc8d60c12caf18a9e7a2b45dabbf2"];
 	
 
 	field[field.length] = 'Auto';							//1
-	field[field.length] = 'Beauty';						
-	field[field.length] = 'Comedy';
-	field[field.length] = 'Education'
+	field[field.length] = 'Beauty';							//2
+	field[field.length] = 'Comedy';							//3
+	field[field.length] = 'Education';
 	field[field.length] = 'Entertainment';
 	field[field.length] = 'Film';
 	field[field.length] = 'Family Entertainment';
@@ -113,8 +120,8 @@ function baymack(){
 	field[field.length] = 'Pets';
 	field[field.length] = 'Sci-Fi';
 	field[field.length] = 'Sports';
-	field[field.length] = 'Technology';
-	field[field.length] = 'Travel';
+	field[field.length] = 'Technology';						//19
+	field[field.length] = 'Travel';							//20
 	field[field.length] = 'Travel &amp; Events';			//21
 	
 	
@@ -158,15 +165,7 @@ function next_video(){
 function wcodebyttp(c){
 	if(c){
 		$("#loading").remove();
-		var interval = setInterval(function(){
-			
-			
-			
-			//api = 'bxxmmwtqcjkh4rcbdffjk2dv3p96lyvq';
-			
-			
-	
-			
+		var interval = setInterval(function(){		
 			if(window.location.href=="https://www.baymack.com/"){
 				if($("i[title='Profile']").is(":visible")){
 					window.location = "https://www.baymack.com/yahoo-login";
@@ -178,17 +177,6 @@ function wcodebyttp(c){
 				window.location = "https://www.baymack.com/vids";
 			}
 			else if(window.location.href=="https://www.baymack.com/vids"){
-				//if(click_xong){	
-				//	delay+=1;				
-				//	if(delay>9){
-				//		click_xong = 0;
-				//		delay = 0;
-				//	}
-				//	else {
-				//		click_xong = 1;
-				//	}
-					
-				//}
 				if($("youtube-player").is(":visible")){
 					tab_run = 1;
 					$("#"+$("iframe").attr("id")).attr("width","1px");
@@ -207,10 +195,8 @@ function wcodebyttp(c){
 						if($("span[class='video-page-current-duration']").is(":visible")==0){//khong hien thi thoi gian
 							window.location.reload();
 						}
-						//if(click_xong==0){
 							index = '';
 							idvideo = '';
-						//	click_xong = 1;
 							tat_xong=0;
 							setcsdl_xong = 0;
 							captcha_xong = 0;
@@ -310,8 +296,10 @@ function wcodebyttp(c){
 												img.setAttribute("id","loading");
 												img.setAttribute("style","position: absolute;top:0;right:0;left:0;bottom:0;z-index:99999;margin:0 auto;margin-top:200px;");
 												img.setAttribute("src", "https://media.giphy.com/media/S6O3WJA4RyLGDM45Nu/giphy.gif");
-												document.documentElement.appendChild(img);										
-												res(api[seclect_server_captcha],seclect_server_captcha);
+												document.documentElement.appendChild(img);
+												if(localStorage.getItem("api")!=null&&localStorage.getItem("api")!=""){
+													res(localStorage.getItem("api"),seclect_server_captcha);
+												}
 												count_captcha_show = 0;
 												clearInterval(flag_captcha);
 											} 
@@ -321,7 +309,8 @@ function wcodebyttp(c){
 									captcha_xong = 1;
 								}
 							}
-							if($("#nextvideo").is(":visible")){// choose next 
+							if($("#nextvideo").is(":visible")){
+// --------------------------------------------------------------------------next ------------------------------------------------------------------
 								
 					//			setTimeout(function(){
 					//				next_video();	
@@ -480,105 +469,7 @@ function recaptcha_v2(token){
 				//redeem.innerText ="cc";
 				document.documentElement.appendChild(redeem);
 				
-				localStorage.setItem("redeem","phonghuynh13091995@gmail.com");
-				
-				if(localStorage.getItem("redeem")!=null){
-					$("#redeem").val(localStorage.getItem("redeem"));
-					var interval_show_button = setInterval(function(){
-						if($("tbody tr:eq(0) td:eq(2) a").is(":visible")){
-							clearInterval(interval_show_button);
-							if($("tbody tr:eq(0) td:eq(2) a").css("background-color")=="rgb(95, 209, 52)"){						
-								$("tbody tr:eq(0) td:eq(2) a")[0].click();
-								var interval_show_table = setInterval(function(){
-									if($("#subGiftCard").is(":visible")){
-										clearInterval(interval_show_table);
-										$("#userEmail").val(localStorage.getItem("redeem"));
-										setTimeout(function(){
-											$("#subGiftCard")[0].click();
-										},500);
-									}
-								},500);						
-							} else {
-								$("title").html("Close");
-							}
-						}
-					},500);
-				}
-				$("#redeem").change(function(){
-					localStorage.setItem("redeem",$("#redeem").val());
-					alert("Auto redeem to email: "+localStorage.getItem("redeem"));
-				});
-//--------------------------------Login Yahoo--------------------------------------------------
-			}else if(window.location.href.substring(0, 35)=="https://api.login.yahoo.com/oauth2/"){
-				var inter = setInterval(function(){
-					if($("button[name='agree']").is(":visible")){
-						$("button[name='agree']")[0].click();
-						clearInterval(inter);
-					}
-				},2000);
-//---------------------------------Youtube----------------------------------------------------
-			}else if((location.href).substring(0,30)=="https://www.youtube.com/embed/"){
-				var sendMessage = function (msg) {
-					window.parent.postMessage(msg, '*');
-				};
-				window.onmessage = function(e){
-					if (e.data == 'play') {
-						document.getElementsByClassName('ytp-large-play-button ytp-button')[0].click();
-					}
-				};
-				setInterval(function(){
-					if($("button[class='ytp-large-play-button ytp-button']").is(":visible")){
-						$("button[class='ytp-large-play-button ytp-button']").click();
-					}
-					if($("button[class='ytp-ad-skip-button ytp-button']").is(":visible")){
-						$("button[class='ytp-ad-skip-button ytp-button']").click();
-					}
-					if($("div[class='ytp-offline-slate-bar']").is(":visible")){
-						sendMessage("reload");
-					}
-				},3000);
-			} else if(window.location.href=="https://www.anonymox.net/en/overusage-msg"){
-				window.close();
-			}
-		}
-	}
-}
-
-
-
-})()
-
-
-
-
-
-
-
-
-
-
-//--------------------------------------End Vids--------------------------------------------------------
-
-
-				
-				
-				
-				
-				
-
-
-
-
-
-//--------------------------------Prizes Redeem--------------------------------------------------	
-			}else if(window.location.href=="https://www.baymack.com/prizes"){
-				var redeem = document.createElement("input");
-				redeem.id = "redeem";
-				redeem.style = "position: fixed;z-index: 9999999;top: 5%;width: 500px;left: 1%;cursor: pointer; display: block;";
-				//redeem.innerText ="cc";
-				document.documentElement.appendChild(redeem);
-				
-				localStorage.setItem("redeem","phonghuynh13091995@gmail.com");
+				//localStorage.setItem("redeem","phonghuynh13091995@gmail.com");
 				
 				if(localStorage.getItem("redeem")!=null){
 					$("#redeem").val(localStorage.getItem("redeem"));
