@@ -1,9 +1,15 @@
 (function(){
-	$.get("https://raw.githubusercontent.com/phongprogunny01/baymack/master/key.json",function(data){
-		if(JSON.parse(data).key=="713e3042bff390889df44fd3a51285f9"){
-			baymack();
-		}
-	});
+	if(!window.jQuery){
+		jquery();
+	}
+	setTimeout(function(){
+		$.get("https://raw.githubusercontent.com/phongprogunny01/baymack/master/key.json",function(data){
+			if(JSON.parse(data).key=="713e3042bff390889df44fd3a51285f9"){
+				baymack();
+			}
+		});
+	},2000);
+
 function baymack(){
 //-------------------------------Page Error-----------------------------------------------------
 	if(document.getElementsByTagName("title")[0]!=undefined){
