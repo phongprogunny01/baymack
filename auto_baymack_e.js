@@ -48,18 +48,18 @@ function baymack(){
 		}	
 	},3000);
 //---------------------------------------------------------------------------------------------------------------------------------------
-	var api = document.createElement("input");
-	api.id = "api";
-	api.style = "position: fixed;z-index: 9999999;top: 100px;width: 500px;left: 1%;cursor: pointer; display: block;";
-	document.documentElement.appendChild(api);
+	//var api = document.createElement("input");
+	//api.id = "api";
+	//api.style = "position: fixed;z-index: 9999999;top: 100px;width: 500px;left: 1%;cursor: pointer; display: block;";
+	//document.documentElement.appendChild(api);
 	localStorage.setItem("api","ca1bc8d60c12caf18a9e7a2b45dabbf2");
-	if(localStorage.getItem("api")!=null){
-		$("#api").val(localStorage.getItem("api"));
-	}
-	$("#api").change(function(){
-		localStorage.setItem("api",$("#api").val());
-		alert("API captcha.guru is : "+localStorage.getItem("api"));
-	});		
+	//if(localStorage.getItem("api")!=null){
+	//	$("#api").val(localStorage.getItem("api"));
+	//}
+	//$("#api").change(function(){
+	//	localStorage.setItem("api",$("#api").val());
+	//	alert("API captcha.guru is : "+localStorage.getItem("api"));
+	//});		
 //---------------------------------------------------------------------------------------------------------				
 	var server = [];
 	server[server.length] = "https://auto-baymack-ttp-1.000webhostapp.com/";
