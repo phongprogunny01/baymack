@@ -153,7 +153,7 @@ function baymack(){
 				//	}).fail(function(){
 				//		$("title").html("502 Bad Gateway");
 				//	});
-				}
+				//}
 			//}).fail(function(){
 			//	$("title").html("502 Bad Gateway");
 			//});
