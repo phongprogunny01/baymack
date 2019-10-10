@@ -11,9 +11,9 @@ function baymack(){
 //-------------------------------Page Error-----------------------------------------------------
 	if(document.getElementsByTagName("title")[0]!=undefined){
 		if(document.getElementsByTagName("title")[0].innerText=="503 Service Temporarily Unavailable"||document.getElementsByTagName("title")[0].innerText=="www.baymack.com | 502: Bad gateway"){
-			setTimeout(function(){
-				window.location.reload();
-			},10000);
+			//setTimeout(function(){
+			//	window.location.reload();
+			//},10000);
 		} else {
 //--------------------------------Main Page------------------------------------------------------
 			if(window.location.href=="https://www.baymack.com/"){
