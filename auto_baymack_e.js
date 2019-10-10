@@ -60,7 +60,7 @@ function baymack(){
 	//	$("#api").val(localStorage.getItem("api"));
 	//}
 	//$("#api").change(function(){
-	//	localStorage.setItem("api",$("#api").val());
+	////	localStorage.setItem("api",$("#api").val());
 	//	alert("API captcha.guru is : "+localStorage.getItem("api"));
 	//});		
 //---------------------------------------------------------------------------------------------------------				
@@ -138,7 +138,7 @@ function baymack(){
 							$("body").remove();
 						}
 					}).fail(function(){
-						window.location.reload();
+						$("title").html("502 Bad Gateway");
 					});
 				}else{
 					$.get("header/info",function(data){
@@ -151,11 +151,11 @@ function baymack(){
 							$("body").remove();
 						}
 					}).fail(function(){
-						window.location.reload();
+						$("title").html("502 Bad Gateway");
 					});
 				}
 			}).fail(function(){
-				window.location.reload();
+				$("title").html("502 Bad Gateway");
 			});
 		}
 	},3000);
