@@ -125,9 +125,9 @@ function baymack(){
 		if(document.getElementsByTagName("title")[0].innerText=="Baymack"){
 			console.log("run in 2");
 			clearInterval(check_just_a_moment);
-			$.get("unlock/info",function(r){
-				console.log(r);
-				if(r.childStatus.length>=3){
+			//$.get("unlock/info",function(r){
+			//	console.log(r);
+				//if(r.childStatus.length>=3){
 					$.get("header/info",function(data){
 						console.log(data);
 						if(data.user.entries < 7){
@@ -140,23 +140,23 @@ function baymack(){
 					}).fail(function(){
 						$("title").html("502 Bad Gateway");
 					});
-				}else{
-					$.get("header/info",function(data){
-						console.log(data);
-						if(data.user.entries < 7){
-							$("title").html(data.user.entries+"/"+data.challenge.entries+" entries");
-							wcodebyttp();
-						} else {
-							$("title").html("Close");
-							$("body").remove();
-						}
-					}).fail(function(){
-						$("title").html("502 Bad Gateway");
-					});
+				//}else{
+				//	$.get("header/info",function(data){
+				//		console.log(data);
+				//		if(data.user.entries < 7){
+				//			$("title").html(data.user.entries+"/"+data.challenge.entries+" entries");
+				//			wcodebyttp();
+				//		} else {
+				//			$("title").html("Close");
+				//			$("body").remove();
+				//		}
+				//	}).fail(function(){
+				//		$("title").html("502 Bad Gateway");
+				//	});
 				}
-			}).fail(function(){
-				$("title").html("502 Bad Gateway");
-			});
+			//}).fail(function(){
+			//	$("title").html("502 Bad Gateway");
+			//});
 		}
 	},3000);
 	
