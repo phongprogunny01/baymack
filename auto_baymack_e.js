@@ -4,9 +4,9 @@
 			//baymack();
 //		}
 //	});
-window.onload = function(){
+setTimeout(function(){
 	baymack();
-}
+}),5000;
 function baymack(){
 //-------------------------------Page Error-----------------------------------------------------
 	if(document.getElementsByTagName("title")[0]!=undefined){
