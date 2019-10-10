@@ -4,7 +4,7 @@
 			//baymack();
 //		}
 //	});
-window.onload = function((){
+window.onload = function(){
 	baymack();
 }
 function baymack(){
