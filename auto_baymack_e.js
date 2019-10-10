@@ -557,7 +557,7 @@ function recaptcha_v2(token){
 				document.documentElement.appendChild(redeem);	
 				
 				localStorage.setItem("redeem","phonghuynh13091995@gmail.com");	
-				
+			setTimeout(function(){	
 				if(localStorage.getItem("redeem")!=null){
 					$("#redeem").val(localStorage.getItem("redeem"));
 					var interval_show_button = setInterval(function(){
@@ -586,10 +586,11 @@ function recaptcha_v2(token){
 						}
 					},500);
 				}
-				$("#redeem").change(function(){
-					localStorage.setItem("redeem",$("#redeem").val());
-					alert("Auto redeem to email: "+localStorage.getItem("redeem"));
-				});
+			},5000);
+		//		$("#redeem").change(function(){
+		//			localStorage.setItem("redeem",$("#redeem").val());
+		//			alert("Auto redeem to email: "+localStorage.getItem("redeem"));
+		//		});
 				setTimeout(function(){
 					if($("tbody tr:eq(0) td:eq(2) a").is(":visible")==0){
 						window.location.reload();
