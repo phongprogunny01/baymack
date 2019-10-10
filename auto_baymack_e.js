@@ -20,12 +20,17 @@ function baymack(){
 						window.location.reload();
 					}	
 				},3000);
-				
-				if($("i[title='Profile']").is(":visible")){
-					window.location.replace("https://www.baymack.com/yahoo-login");
-				} else {
-					window.location.replace("https://www.baymack.com/history");
-				}
+				var check_main = setInterval(function(){					
+					if($("i[title='Profile']").is(":visible")){
+						clearInterval(check_main);
+						window.location.replace("https://www.baymack.com/yahoo-login");
+					}
+					if($(".profile-img img").is(":visible")) {
+						clearInterval(check_main);
+						window.location.replace("https://www.baymack.com/history");
+					}		
+				},3000);
+
 //--------------------------------View video----------------------------------------------------
 			}else if(window.location.href=="https://www.baymack.com/vids"){
 				
