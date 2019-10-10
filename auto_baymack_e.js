@@ -128,7 +128,7 @@ function baymack(){
 					$.get("header/info",function(data){
 						console.log(data);
 						if(data.user.entries < 7){
-							$("title").html(data.user.entries+"/7 entries");
+							$("title").html(data.user.entries+"/"+data.challenge.entries+" entries");
 							wcodebyttp();
 						} else {
 							$("title").html("Close");
@@ -141,7 +141,7 @@ function baymack(){
 					$.get("header/info",function(data){
 						console.log(data);
 						if(data.user.entries < 7){
-							$("title").html(data.user.entries+"/7 entries");
+							$("title").html(data.user.entries+"/"+data.challenge.entries+" entries");
 							wcodebyttp();
 						} else {
 							$("title").html("Close");
