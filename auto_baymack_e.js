@@ -520,11 +520,11 @@ function recaptcha_v2(token){
 						clearInterval(check_show_history);
 						if($("div[class='history-tbl-data'] h3").eq(0).is(":visible")){
 							if(parseFloat($("div[class='historyblock'] div h2 a").html().substring(1))<0.05){
-								if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Red"&&parseFloat($("div[class='history-tbl-data'] h3").eq(0).html().substring(9))<0.5){
+								if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Red"&&parseFloat($("div[class='history-tbl-data'] h3").eq(0).html().substring(9))<0.2){
 									window.location.replace("https://www.baymack.com/vids");
 								} else if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Won"){
 									window.location.replace("https://www.baymack.com/vids");
-								} else if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Red"&&parseFloat($("div[class='history-tbl-data'] h3").eq(0).html().substring(9))>=0.5){
+								} else if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Red"&&parseFloat($("div[class='history-tbl-data'] h3").eq(0).html().substring(9))>=0.2){
 									//$("title").html("Close");
 								}
 							}
