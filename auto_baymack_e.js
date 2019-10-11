@@ -530,6 +530,8 @@ function recaptcha_v2(token){
 							}
 							if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Ear"&&parseFloat($("div[class='historyblock'] div h2 a").html().substring(1))==0.01){
 									window.location.replace("https://www.baymack.com/vids");
+							} else if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Ear"&&parseFloat($("div[class='historyblock'] div h2 a").html().substring(1))>=0.25){
+									$("title").html("Close");
 							}
 						} else if($("div[class='history-tbl-data'] h3").eq(0).is(":visible")==0&&parseFloat($("div[class='historyblock'] div h2 a").html().substring(1))==0){
 							window.location.replace("https://www.baymack.com/vids");
