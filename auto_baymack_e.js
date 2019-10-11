@@ -527,6 +527,9 @@ function recaptcha_v2(token){
 								} else if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Red"&&parseFloat($("div[class='history-tbl-data'] h3").eq(0).html().substring(9))>=0.2){
 									//$("title").html("Close");
 								}
+								if($(".row p").eq(0).html()=="<!----> Redemption paid <!---->"){
+									window.location.replace("https://www.baymack.com/vids");
+								}
 							}
 							if($("div[class='history-tbl-data'] h3").eq(0).html().substring(0,4)==" Ear"&&parseFloat($("div[class='historyblock'] div h2 a").html().substring(1))==0.01){
 									window.location.replace("https://www.baymack.com/vids");
