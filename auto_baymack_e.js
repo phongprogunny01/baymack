@@ -193,7 +193,7 @@ function stop_video(){
 	iframe.contentWindow.postMessage('play', '*');
 }
 function next_video(){
-	$("#nextvideo")[0].click();
+	$("#nextvideo").eq(0).click();
 }
 function wcodebyttp(){
 	console.log("run in 4");
