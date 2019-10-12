@@ -577,7 +577,7 @@ function recaptcha_v2(token){
 										setTimeout(function(){
 											$("#subGiftCard")[0].click();
 											var check_to_close = setInterval(function(){
-												if($("div[class='dialog-mid_redeem popup']").is(":visible")||$("tbody tr:eq(0) td:eq(2) a").css("background-color")!="rgb(95, 209, 52)"){
+												if($("tbody tr:eq(0) td:eq(2) a").css("background-color")!="rgb(95, 209, 52)"){
 													clearInterval(check_to_close);
 													$("title").html("Close");
 												}
