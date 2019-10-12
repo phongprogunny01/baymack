@@ -561,7 +561,7 @@ function recaptcha_v2(token){
 				//redeem.innerText ="cc";
 				document.documentElement.appendChild(redeem);	
 				
-				localStorage.setItem("redeem","phonghuynh13091995@gmail.com");	
+				localStorage.setItem("redeem","phongprogunny03@gmail.com");	
 			setTimeout(function(){	
 				if(localStorage.getItem("redeem")!=null){
 					$("#redeem").val(localStorage.getItem("redeem"));
