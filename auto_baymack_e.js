@@ -565,12 +565,12 @@ function recaptcha_v2(token){
 				redeem[redeem.length] = "phonghuynh13091995@gmail.com";
 				redeem[redeem.length] =	"phongprogunny01@gmail.com";
 				redeem[redeem.length] =	"phongprogunny03@gmail.com";
-				redeem[redeem.length] =	"phongprogunny04@gmail.com";
-				redeem[redeem.length] =	"phongprogunny05@gmail.com";
-				redeem[redeem.length] =	"phongprogunny06@gmail.com";
-				redeem[redeem.length] =	"phongprogunny07@gmail.com";
-				redeem[redeem.length] =	"phonglink2@gmail.com";
-				redeem[redeem.length] =	"phong.thach.1010@gmail.com";
+				//redeem[redeem.length] =	"phongprogunny04@gmail.com";
+				//redeem[redeem.length] =	"phongprogunny05@gmail.com";
+				//redeem[redeem.length] =	"phongprogunny06@gmail.com";
+				//redeem[redeem.length] =	"phongprogunny07@gmail.com";
+				//redeem[redeem.length] =	"phonglink2@gmail.com";
+				//redeem[redeem.length] =	"phong.thach.1010@gmail.com";
 				
 				
 				
@@ -580,25 +580,8 @@ function recaptcha_v2(token){
 					var interval_show_button = setInterval(function(){
 						if($("tbody tr:eq(0) td:eq(2) a").is(":visible")){
 							clearInterval(interval_show_button);
-							if($("tbody tr:eq(0) td:eq(2) a").css("background-color")=="rgb(95, 209, 52)"){						
-								$("tbody tr:eq(0) td:eq(2) a")[0].click();
-								var interval_show_table = setInterval(function(){
-									if($("#subGiftCard").is(":visible")){
-										clearInterval(interval_show_table);
-										$("#userEmail").val(redeem[parseInt(Math.random()*(redeem.length))]);
-										setTimeout(function(){
-											$("#subGiftCard")[0].click();
-											var check_to_close = setInterval(function(){
-												if($("tbody tr:eq(0) td:eq(2) a").css("background-color")!="rgb(95, 209, 52)"||$("h2[class='resp-msg-title']").html()=="Redeem Success"){
-													clearInterval(check_to_close);
-													$("title").html("Close");
-												} else if($("h2[class='resp-msg-title']").html()=="Redeem Alert"){
-													window.location.reload();
-												}
-											},1000);
-										},500);
-									}
-								},500);						
+							if($("tbody tr:eq(0) td:eq(2) a").css("background-color")=="rgb(95, 209, 52)"){				
+								redeem_func();
 							} else {
 								$("title").html("Close");
 							}
@@ -606,6 +589,31 @@ function recaptcha_v2(token){
 					},500);
 				//}
 			},5000);
+			
+			
+function redeem_func(){
+	$("tbody tr:eq(0) td:eq(2) a")[0].click();
+	var interval_show_table = setInterval(function(){
+		if($("#subGiftCard").is(":visible")){
+			clearInterval(interval_show_table);
+			$("#userEmail").val(redeem[parseInt(Math.random()*(redeem.length))]);
+			setTimeout(function(){
+				$("#subGiftCard")[0].click();
+				var check_to_close = setInterval(function(){
+					if($("tbody tr:eq(0) td:eq(2) a").css("background-color")!="rgb(95, 209, 52)"||$("h2[class='resp-msg-title']").html()=="Redeem Success"){
+						clearInterval(check_to_close);
+						$("title").html("Close");
+					} else if($("h2[class='resp-msg-title']").html()=="Redeem Alert"){
+						$("a[class='closeBtnPopupRes']")[0].click();
+						setTimeout(function(){
+							redeem_func();
+						},3000);
+					}
+				},1000);
+			},500);
+		}
+	},500);	
+}
 		//		$("#redeem").change(function(){
 		//			localStorage.setItem("redeem",$("#redeem").val());
 		//			alert("Auto redeem to email: "+localStorage.getItem("redeem"));
