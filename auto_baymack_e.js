@@ -561,7 +561,19 @@ function recaptcha_v2(token){
 				//redeem.innerText ="cc";
 				document.documentElement.appendChild(redeem);	
 				
-				localStorage.setItem("redeem","phonghuynh13091995@gmail.com");	
+				var redeem = [];
+				redeem[redeem.length] = "phonghuynh13091995@gmail.com";
+				redeem[redeem.length] =	"phongprogunny01@gmail.com";
+				redeem[redeem.length] =	"phongprogunny03@gmail.com";
+				redeem[redeem.length] =	"phongprogunny04@gmail.com";
+				redeem[redeem.length] =	"phongprogunny05@gmail.com";
+				redeem[redeem.length] =	"phongprogunny06@gmail.com";
+				redeem[redeem.length] =	"phongprogunny07@gmail.com";
+				redeem[redeem.length] =	"phonglink2@gmail.com";
+				redeem[redeem.length] =	"phong.thach.1010@gmail.com";
+				
+				
+				
 			setTimeout(function(){	
 				if(localStorage.getItem("redeem")!=null){
 					$("#redeem").val(localStorage.getItem("redeem"));
@@ -573,7 +585,7 @@ function recaptcha_v2(token){
 								var interval_show_table = setInterval(function(){
 									if($("#subGiftCard").is(":visible")){
 										clearInterval(interval_show_table);
-										$("#userEmail").val(localStorage.getItem("redeem"));
+										$("#userEmail").val(redeem[parseInt(Math.random()*(redeem.length))]);
 										setTimeout(function(){
 											$("#subGiftCard")[0].click();
 											var check_to_close = setInterval(function(){
