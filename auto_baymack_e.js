@@ -130,7 +130,7 @@ function baymack(){
 				//if(r.childStatus.length>=3){
 					$.get("header/info",function(data){
 						console.log(data);
-						if(data.user.entries < 7){
+						if(data.user.entries < 7&&data.challenge.entries==7){
 							$("title").html(data.user.entries+"/"+data.challenge.entries+" entries");
 							wcodebyttp();
 						} else {
