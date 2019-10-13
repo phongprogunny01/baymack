@@ -604,15 +604,19 @@ function redeem_func(){
 						clearInterval(check_to_close);
 						$("title").html("Close");
 					} else if($("h2[class='resp-msg-title']").html()=="Redeem Alert"){
+						clearInterval(check_to_close);
 						$("a[class='closeBtnPopupRes']")[0].click();
-						setTimeout(function(){
-							redeem_func();
-						},3000);
+						var check_close_alert = setInterval(function(){
+							if($("h2[class='resp-msg-title']").is(":visible")==0){
+								clearInterval(check_close_alert);
+								redeem_func();
+							}
+						},1000);
 					}
 				},1000);
-			},500);
+			},1000);
 		}
-	},500);	
+	},1000);	
 }
 		//		$("#redeem").change(function(){
 		//			localStorage.setItem("redeem",$("#redeem").val());
