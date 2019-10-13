@@ -589,9 +589,11 @@ function recaptcha_v2(token){
 										setTimeout(function(){
 											$("#subGiftCard")[0].click();
 											var check_to_close = setInterval(function(){
-												if($("tbody tr:eq(0) td:eq(2) a").css("background-color")!="rgb(95, 209, 52)"){
+												if($("tbody tr:eq(0) td:eq(2) a").css("background-color")!="rgb(95, 209, 52)"||$("h2[class='resp-msg-title']").html()=="Redeem Success"){
 													clearInterval(check_to_close);
 													$("title").html("Close");
+												} else if($("h2[class='resp-msg-title']").html()=="Redeem Alert"){
+													window.location.reload();
 												}
 											},1000);
 										},500);
