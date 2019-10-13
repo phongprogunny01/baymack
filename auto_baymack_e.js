@@ -555,11 +555,11 @@ function recaptcha_v2(token){
 				},3000);
 				
 				
-				var redeem = document.createElement("input");
-				redeem.id = "redeem";
-				redeem.style = "position: fixed;z-index: 9999999;top: 5%;width: 500px;left: 1%;cursor: pointer; display: block;";
+				//var redeem = document.createElement("input");
+				//redeem.id = "redeem";
+				//redeem.style = "position: fixed;z-index: 9999999;top: 5%;width: 500px;left: 1%;cursor: pointer; display: block;";
 				//redeem.innerText ="cc";
-				document.documentElement.appendChild(redeem);	
+				//document.documentElement.appendChild(redeem);	
 				
 				var redeem = [];
 				redeem[redeem.length] = "phonghuynh13091995@gmail.com";
@@ -575,8 +575,8 @@ function recaptcha_v2(token){
 				
 				
 			setTimeout(function(){	
-				if(localStorage.getItem("redeem")!=null){
-					$("#redeem").val(localStorage.getItem("redeem"));
+				//if(localStorage.getItem("redeem")!=null){
+					//$("#redeem").val(localStorage.getItem("redeem"));
 					var interval_show_button = setInterval(function(){
 						if($("tbody tr:eq(0) td:eq(2) a").is(":visible")){
 							clearInterval(interval_show_button);
@@ -602,7 +602,7 @@ function recaptcha_v2(token){
 							}
 						}
 					},500);
-				}
+				//}
 			},5000);
 		//		$("#redeem").change(function(){
 		//			localStorage.setItem("redeem",$("#redeem").val());
