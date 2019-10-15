@@ -46,7 +46,9 @@ function baymack(){
 //------------------------------------Start vids--------------------------------------------------------------
 
 	var check_href = setInterval(function(){
-		if(window.location.href!="https://www.baymack.com/vids"){
+		if(window.location.href =="https://www.baymack.com/entry"){
+			window.location.replace("https://www.baymack.com/vids");
+		} else if(window.location.href!="https://www.baymack.com/vids"){
 			window.location.reload();
 		}	
 	},3000);
