@@ -563,24 +563,24 @@ function recaptcha_v2(token){
 				
 				var redeem = [];
 				redeem[redeem.length] = "phonghuynh13091995@gmail.com";
-				//redeem[redeem.length] =	"phonglink2@gmail.com";
-				//redeem[redeem.length] =	"phong.thach.1010@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny01@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny03@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny04@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny05@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny06@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny07@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny08@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny09@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny10@gmail.com";
-				//redeem[redeem.length] =	"phongprogunny11@gmail.com";
-			//	redeem[redeem.length] =	"phongprogunny12@gmail.com";
-			//	redeem[redeem.length] =	"phongprogunny13@gmail.com";
-			//	redeem[redeem.length] =	"phongprogunny14@gmail.com";
-			//	redeem[redeem.length] =	"phongprogunny15@gmail.com";
-			//	redeem[redeem.length] =	"phongprogunny16@gmail.com";
-			//	redeem[redeem.length] =	"phongprogunny18@gmail.com";
+				redeem[redeem.length] =	"phonglink2@gmail.com";
+				redeem[redeem.length] =	"phong.thach.1010@gmail.com";
+				redeem[redeem.length] =	"phongprogunny01@gmail.com";
+				redeem[redeem.length] =	"phongprogunny03@gmail.com";
+				redeem[redeem.length] =	"phongprogunny04@gmail.com";
+				redeem[redeem.length] =	"phongprogunny05@gmail.com";
+				redeem[redeem.length] =	"phongprogunny06@gmail.com";
+				redeem[redeem.length] =	"phongprogunny07@gmail.com";
+				redeem[redeem.length] =	"phongprogunny08@gmail.com";
+				redeem[redeem.length] =	"phongprogunny09@gmail.com";
+				redeem[redeem.length] =	"phongprogunny10@gmail.com";
+				redeem[redeem.length] =	"phongprogunny11@gmail.com";
+				redeem[redeem.length] =	"phongprogunny12@gmail.com";
+				redeem[redeem.length] =	"phongprogunny13@gmail.com";
+				redeem[redeem.length] =	"phongprogunny14@gmail.com";
+				redeem[redeem.length] =	"phongprogunny15@gmail.com";
+				redeem[redeem.length] =	"phongprogunny16@gmail.com";
+				redeem[redeem.length] =	"phongprogunny18@gmail.com";
 				
 				
 				
@@ -619,7 +619,7 @@ function redeem_func(){
 						var check_close_alert = setInterval(function(){
 							if($("h2[class='resp-msg-title']").is(":visible")==0){
 								clearInterval(check_close_alert);
-								//redeem_func();
+								redeem_func();
 							}
 						},1000);
 					}
