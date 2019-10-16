@@ -620,6 +620,7 @@ function redeem_func(){
 					} else if($("h2[class='resp-msg-title']").html()=="Redeem Alert"){
 						clearInterval(check_to_close);
 						$("a[class='closeBtnPopupRes']")[0].click();
+						close__popup__error();
 						var check_close_alert = setInterval(function(){
 							if($("h2[class='resp-msg-title']").is(":visible")==0){
 								clearInterval(check_close_alert);
@@ -631,6 +632,14 @@ function redeem_func(){
 			},1000);
 		}
 	},1000);	
+}
+function close__popup__error(){
+	setTimeout(function(){
+		if($("h2[class='resp-msg-title']").html()=="Redeem Alert"&&$("h2[class='resp-msg-title']").is(":visible")){
+			$("a[class='closeBtnPopupRes']")[0].click();
+			close__popup__error();
+		}
+	},5000);
 }
 		//		$("#redeem").change(function(){
 		//			localStorage.setItem("redeem",$("#redeem").val());
