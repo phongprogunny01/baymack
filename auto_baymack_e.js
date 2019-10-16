@@ -584,7 +584,7 @@ function recaptcha_v2(token){
 				redeem[redeem.length] =	"phongprogunny16@gmail.com";
 				redeem[redeem.length] =	"phongprogunny18@gmail.com";
 				
-				
+				var mail = '';
 				
 			setTimeout(function(){	
 				//if(localStorage.getItem("redeem")!=null){
@@ -608,11 +608,13 @@ function redeem_func(){
 	var interval_show_table = setInterval(function(){
 		if($("#subGiftCard").is(":visible")){
 			clearInterval(interval_show_table);
-			$("#userEmail").val(redeem[parseInt(Math.random()*(redeem.length))]);
+			mail = redeem[parseInt(Math.random()*(redeem.length))];
+			$("#userEmail").val(mail);
 			setTimeout(function(){
 				$("#subGiftCard")[0].click();
 				var check_to_close = setInterval(function(){
 					if($("tbody tr:eq(0) td:eq(2) a").css("background-color")!="rgb(95, 209, 52)"||$("h2[class='resp-msg-title']").html()=="Redeem Success"){
+						localStorage.setItem("mail",mail);
 						clearInterval(check_to_close);
 						$("title").html("Close");
 					} else if($("h2[class='resp-msg-title']").html()=="Redeem Alert"){
