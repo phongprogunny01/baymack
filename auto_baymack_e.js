@@ -601,8 +601,22 @@ function recaptcha_v2(token){
 					},500);
 				//}
 			},5000);
-			
-			
+	
+var reload = 0;	
+	setInterval(function(){
+		if($("div[class='loadingoverlay']").is(":visible")){
+			reload++;
+			if(reload>3){
+				window.location.reload();
+			}
+		} else {
+			reload = 0;
+		}
+		
+	},5000);	
+
+
+	
 function redeem_func(){
 	$("tbody tr:eq(0) td:eq(2) a")[0].click();
 	var interval_show_table = setInterval(function(){
